@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +16,11 @@ import { DependentdetailsComponent } from './selfservice/dependentdetails/depend
 import { JobdetailsComponent } from './selfservice/jobdetails/jobdetails.component';
 import { WorkexperienceComponent } from './selfservice/workexperience/workexperience.component';
 import { AcademicdetailsComponent } from './selfservice/academicdetails/academicdetails.component';
+import { TasksComponent } from './tasks/tasks.component';
+
+import { TasksService } from './tasks/tasks.service';
+import { AddTaskComponent } from './tasks/add-task/add-task.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,12 +36,16 @@ import { AcademicdetailsComponent } from './selfservice/academicdetails/academic
     DependentdetailsComponent,
     JobdetailsComponent,
     WorkexperienceComponent,
-    AcademicdetailsComponent
+    AcademicdetailsComponent,
+    TasksComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    FormsModule,
     RouterModule.forRoot([
-      { path: 'attendance', component:AttendanceComponent },
+      { path:'attendance', component:AttendanceComponent },
       { path:'leave', component:LeaveComponent },
       { path:'document',component:DocumentComponent },
       { path:'selfservice/personaldetails',component:PersonaldetailsComponent },
@@ -43,9 +54,12 @@ import { AcademicdetailsComponent } from './selfservice/academicdetails/academic
       { path:'selfservice/workexperience', component:WorkexperienceComponent },
       { path:'selfservice/jobdetails', component:JobdetailsComponent },
       { path:'selfservice/academicdetails',component: AcademicdetailsComponent },
-    ])    
+      { path:'tasks',component: TasksComponent }
+    ]),
+    NgbModule.forRoot()    
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [TasksService],
+  bootstrap: [AppComponent],
+  entryComponents: [AddTaskComponent]
 })
 export class AppModule { }

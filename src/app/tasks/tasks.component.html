@@ -1,0 +1,23 @@
+<button class="btn btn-lg btn-outline-primary" (click)="open()">Add</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Status</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <th scope="row">{{ task.id }}</th>
+      <td>{{ task.title }}</td>
+      <td>{{ task.status }}</td>
+      <td>
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
