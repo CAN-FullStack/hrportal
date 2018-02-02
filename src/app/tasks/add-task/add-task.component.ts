@@ -8,7 +8,8 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit {
-  @Input() title: string;
+  @Input() name: string;
+  @Input() designation: string;
   @Input() status: string;
   
   constructor(public activeModal: NgbActiveModal, private tasksService: TasksService) {}
@@ -18,7 +19,7 @@ export class AddTaskComponent implements OnInit {
   }
 
   add() {
-    this.tasksService.addTask({title: this.title, status: this.status})
+    this.tasksService.addTask({name: this.name, designation: this.designation, status: this.status})
       .subscribe(response => this.activeModal.close(response.json()));
   }
 

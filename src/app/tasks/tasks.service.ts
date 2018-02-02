@@ -14,4 +14,8 @@ export class TasksService {
     return this.http.post('http://localhost:3000/tasks', task);
   }
 
+  updateTask(task) {
+    return this.http.put('http://localhost:3000/tasks/' + task.id, task);
+  }
+
 }

@@ -21,7 +21,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TasksService } from './tasks/tasks.service';
 import { AddTaskComponent } from './tasks/add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
-
+import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     WorkexperienceComponent,
     AcademicdetailsComponent,
     TasksComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +61,9 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [TasksService],
   bootstrap: [AppComponent],
-  entryComponents: [AddTaskComponent]
+  entryComponents: [
+    AddTaskComponent,
+    EditTaskComponent
+  ]
 })
 export class AppModule { }
